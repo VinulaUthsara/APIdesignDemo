@@ -41,12 +41,11 @@ paths:
           description: The specified pin is invalid
         404:
           description: An account with the specified pin was not found
-          
-    /withdrawal/{pin}:
-    put:
+  /withdrawal/{pin}:
+    get:
       tags:
       - Withdrawal
-      summary: Returns customer withdrawal information
+      summary: Returns customer account information
       operationId: PUT_accountinfo-pin
       parameters:
       - name: pin
@@ -75,6 +74,17 @@ paths:
         404:
           description: An account with the specified pin was not found
 definitions:
+  inline_response_200_1:
+    properties:
+      account_number:
+        type: number
+        example: 1.12233445566E11
+      account_name:
+        type: string
+        example: Vinula Uthsara
+      account_balance:
+        type: string
+        example: Rs. 20,000.00
   inline_response_200:
     properties:
       account_number:
