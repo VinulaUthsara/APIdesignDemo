@@ -56,7 +56,39 @@ paths:
         minimum: 1
       responses:
         200:
-          description: A customer account object
+          description: A withdrawal object
+          schema:
+            type: object
+            properties:
+              account_number:
+                type: number
+                example: 1.12233445566E11
+              account_name:
+                type: string
+                example: Vinula Uthsara
+              account_balance:
+                type: string
+                example: Rs. 20,000.00
+        400:
+          description: The specified pin is invalid
+        404:
+          description: An account with the specified pin was not found
+  /deposit/{pin}:
+    put:
+      tags:
+      - Deposit
+      summary: Returns customer withdrawal information
+      operationId: PUT_deposit-pin
+      parameters:
+      - name: pin
+        in: path
+        description: The pin of customers account
+        required: true
+        type: integer
+        minimum: 1
+      responses:
+        200:
+          description: A deposit object
           schema:
             type: object
             properties:
