@@ -10,7 +10,7 @@ schemes:
 - https
 paths:
   /accountinfo/{pin}:
-    put:
+    get:
       tags:
       - Accountinfo
       summary: Returns customer account information
@@ -42,7 +42,7 @@ paths:
         404:
           description: An account with the specified pin was not found
   /withdrawal/{pin}:
-    get:
+    put:
       tags:
       - Withdrawal
       summary: Returns customer withdrawal information
