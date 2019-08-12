@@ -1,0 +1,55 @@
+---
+swagger: "2.0"
+info:
+  description: provides bank atm  api functions
+  version: 1.0.0
+  title: APIdesignDEMO
+host: virtserver.swaggerhub.com
+basePath: /Vinula/APIdesignLab/1.0.0
+schemes:
+- https
+paths:
+  /accountinfo/{pin}:
+    get:
+      tags:
+      - Accountinfo
+      summary: Returns customer account information
+      operationId: GET_accountinfo-pin
+      parameters:
+      - name: pin
+        in: path
+        description: The pin of customers account
+        required: true
+        type: integer
+        minimum: 1
+      responses:
+        200:
+          description: A customer account object
+          schema:
+            type: object
+            properties:
+              account_number:
+                type: number
+                example: 1.12233445566E11
+              account_name:
+                type: string
+                example: Vinula Uthsara
+              account_balance:
+                type: string
+                example: Rs. 500,000.00
+        400:
+          description: The specified pin is invalid
+        404:
+          description: An account with the specified pin was not found
+definitions:
+  inline_response_200:
+    properties:
+      account_number:
+        type: number
+        example: 1.12233445566E11
+      account_name:
+        type: string
+        example: Vinula Uthsara
+      account_balance:
+        type: string
+        example: Rs. 500,000.00
