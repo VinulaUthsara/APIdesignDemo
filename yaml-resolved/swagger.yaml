@@ -10,7 +10,7 @@ schemes:
 - https
 paths:
   /accountinfo/{pin}:
-    get:
+    put:
       tags:
       - Accountinfo
       summary: Returns customer account information
