@@ -1,98 +1,99 @@
----
-swagger: "2.0"
+swagger: '2.0'
 info:
-  description: provides bank atm  api functions
   version: 1.0.0
   title: APIdesignDEMO
+  description: provides bank atm  api functions provides bank atm  api functions
 host: virtserver.swaggerhub.com
 basePath: /Vinula/APIdesignLab/1.0.0
 schemes:
-- https
+  - https
 paths:
-  /accountinfo/{pin}:
+  '/accountinfo/{pin}':
+    parameters:
+      - name: pin
+        in: path
+        description: The pin of customers account
+        required: true
+        type: integer
+        minimum: 1
     put:
-      tags:
-      - Accountinfo
-      summary: Returns customer account information
       operationId: GET_accountinfo-pin
-      parameters:
-      - name: pin
-        in: path
-        description: The pin of customers account
-        required: true
-        type: integer
-        minimum: 1
-      responses:
-        200:
-          description: A customer account object
-          schema:
-            type: object
-            properties:
-              account_number:
-                type: number
-                example: 1.12233445566E11
-              account_name:
-                type: string
-                example: Vinula Uthsara
-              account_balance:
-                type: string
-                example: Rs. 500,000.00
-        400:
-          description: The specified pin is invalid
-        404:
-          description: An account with the specified pin was not found
-  /withdrawal/{pin}:
-    get:
+      summary: Returns customer account information
       tags:
-      - Withdrawal
-      summary: Returns customer withdrawal information
-      operationId: PUT_accountinfo-pin
-      parameters:
-      - name: pin
-        in: path
-        description: The pin of customers account
-        required: true
-        type: integer
-        minimum: 1
+        - Accountinfo
       responses:
-        200:
+        '200':
           description: A customer account object
           schema:
             type: object
             properties:
               account_number:
                 type: number
-                example: 1.12233445566E11
+                example: 112233445566
               account_name:
                 type: string
                 example: Vinula Uthsara
               account_balance:
                 type: string
-                example: Rs. 20,000.00
-        400:
+                example: 'Rs. 500,000.00'
+        '400':
           description: The specified pin is invalid
-        404:
+        '404':
+          description: An account with the specified pin was not found
+  '/withdrawal/{pin}':
+    parameters:
+      - name: pin
+        in: path
+        description: The pin of customers account
+        required: true
+        type: integer
+        minimum: 1
+    get:
+      operationId: PUT_accountinfo-pin
+      summary: Returns customer withdrawal information
+      tags:
+        - Withdrawal
+      responses:
+        '200':
+          description: A customer account object
+          schema:
+            type: object
+            properties:
+              account_number:
+                type: number
+                example: 112233445566
+              account_name:
+                type: string
+                example: Vinula Uthsara
+              account_balance:
+                type: string
+                example: 'Rs. 20,000.00'
+        '400':
+          description: The specified pin is invalid
+        '404':
           description: An account with the specified pin was not found
 definitions:
-  inline_response_200_1:
-    properties:
-      account_number:
-        type: number
-        example: 1.12233445566E11
-      account_name:
-        type: string
-        example: Vinula Uthsara
-      account_balance:
-        type: string
-        example: Rs. 20,000.00
   inline_response_200:
+    title: inline_response_200
     properties:
       account_number:
         type: number
-        example: 1.12233445566E11
+        example: 112233445566
       account_name:
         type: string
         example: Vinula Uthsara
       account_balance:
         type: string
-        example: Rs. 500,000.00
+        example: 'Rs. 500,000.00'
+  inline_response_200_1:
+    title: inline_response_200_1
+    properties:
+      account_number:
+        type: number
+        example: 112233445566
+      account_name:
+        type: string
+        example: Vinula Uthsara
+      account_balance:
+        type: string
+        example: 'Rs. 20,000.00'
