@@ -46,7 +46,7 @@ paths:
       tags:
       - Withdrawal
       summary: Returns customer withdrawal information
-      operationId: PUT_accountinfo-pin
+      operationId: PUT_withdrawal-pin
       parameters:
       - name: pin
         in: path
