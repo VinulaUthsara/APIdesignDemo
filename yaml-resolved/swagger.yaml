@@ -8,6 +8,15 @@ basePath: /Vinula/APIdesignLab/1.0.0
 schemes:
   - https
 paths:
+
+  /accountinfo/{pin}:
+    get:
+      tags:
+      - Accountinfo
+      summary: Returns customer account information
+      operationId: GET_accountinfo-pin
+      parameters:
+
   '/accountinfo/{pin}':
     parameters:
       - name: pin
@@ -40,8 +49,18 @@ paths:
           description: The specified pin is invalid
         '404':
           description: An account with the specified pin was not found
+
+  /withdrawal/{pin}:
+    put:
+      tags:
+      - Withdrawal
+      summary: Returns customer withdrawal information
+      operationId: PUT_accountinfo-pin
+      parameters:
+
   '/withdrawal/{pin}':
     parameters:
+
       - name: pin
         in: path
         description: The pin of customers account
@@ -54,8 +73,45 @@ paths:
       tags:
         - Withdrawal
       responses:
+
+        200:
+          description: A withdrawal object
+          schema:
+            type: object
+            properties:
+              account_number:
+                type: number
+                example: 1.12233445566E11
+              account_name:
+                type: string
+                example: Vinula Uthsara
+              withdrawal_amount:
+                type: string
+                example: Rs. 20,000.00
+        400:
+          description: The specified pin is invalid
+        404:
+          description: An account with the specified pin was not found
+  /deposit/{pin}:
+    put:
+      tags:
+      - Deposit
+      summary: Returns customer withdrawal information
+      operationId: PUT_deposit-pin
+      parameters:
+      - name: pin
+        in: path
+        description: The pin of customers account
+        required: true
+        type: integer
+        minimum: 1
+      responses:
+        200:
+          description: A deposit object
+
         '200':
           description: A customer account object
+
           schema:
             type: object
             properties:
@@ -82,7 +138,7 @@ definitions:
       account_name:
         type: string
         example: Vinula Uthsara
-      account_balance:
+      withdrawal_amount:
         type: string
         example: 'Rs. 500,000.00'
   inline_response_200_1:
@@ -96,4 +152,19 @@ definitions:
         example: Vinula Uthsara
       account_balance:
         type: string
+
+        example: Rs. 500,000.00
+  inline_response_200_2:
+    properties:
+      account_number:
+        type: number
+        example: 1.12233445566E11
+      account_name:
+        type: string
+        example: Vinula Uthsara
+      account_balance:
+        type: string
+        example: Rs. 20,000.00
+
         example: 'Rs. 20,000.00'
+
