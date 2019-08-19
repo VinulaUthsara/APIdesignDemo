@@ -42,7 +42,7 @@ paths:
         404:
           description: An account with the specified pin was not found
   /withdrawal/{pin}:
-    put:
+    post:
       tags:
       - Withdrawal
       summary: Returns customer withdrawal information
@@ -74,7 +74,7 @@ paths:
         404:
           description: An account with the specified pin was not found
   /deposit/{pin}:
-    put:
+    post:
       tags:
       - Deposit
       summary: Returns customer withdrawal information
