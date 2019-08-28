@@ -100,7 +100,7 @@ paths:
                 example: Vinula Uthsara
               deposit_amount:
                 type: string
-                example: Rs. 20,000.00
+                example: Rs. 20000000000,000.00
         400:
           description: The specified pin is invalid
         404:
@@ -138,4 +138,4 @@ definitions:
         example: Vinula Uthsara
       deposit_amount:
         type: string
-        example: Rs. 20,000.00
+        example: Rs. 20000000000,000.00
